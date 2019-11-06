@@ -1,0 +1,26 @@
+<div class="regCon">
+  <div class="mat-title">Sign Up!</div>
+  <mat-form-field>
+    <input matInput placeholder="First Name" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Last Name" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Username" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Enter your email" [formControl]="email" required>
+    <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Enter a password" [type]="hide ? 'password' : 'text'" required>
+    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide Password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+  </mat-form-field>
+</div>

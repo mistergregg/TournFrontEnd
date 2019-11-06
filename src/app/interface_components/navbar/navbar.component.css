@@ -1,0 +1,13 @@
+.navbar {
+  justify-content: space-between;
+}
+
+span {
+  padding-right: 1rem;
+}
+
+.fixed-header {
+  top: 0;
+  position: fixed;
+  z-index:999;
+}

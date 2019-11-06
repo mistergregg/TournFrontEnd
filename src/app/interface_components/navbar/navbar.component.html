@@ -1,0 +1,14 @@
+<mat-toolbar color="primary" class="navbar fixed-header">
+  <div>Site</div>
+  <div>
+    <span>Home</span>
+    <span>
+      <button mat-flat-button [mat-menu-trigger-for]="appMenu"><mat-icon>account_circle</mat-icon></button>
+    </span>
+  </div>
+</mat-toolbar>
+
+<mat-menu #appMenu="matMenu">
+  <button mat-menu-item>Account Settings</button>
+  <button mat-menu-item>Logout</button>
+</mat-menu>

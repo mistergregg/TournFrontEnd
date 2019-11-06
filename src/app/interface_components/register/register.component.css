@@ -1,0 +1,12 @@
+.regCon {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin-top: 5%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.regCon > * {
+  width: 100%;
+}
