@@ -1,9 +1,33 @@
 import { Injectable } from '@angular/core';
+import { User } from '../model/user.model';
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationServiceService {
 
-  constructor() { }
+  currentUser: User;
+
+  constructor(private http: HttpClient,
+              private router: Router) {
+  }
+
+  logout() {
+    sessionStorage.removeItem('username');
+  }
+
+  async signUp() {
+    console.log(this.currentUser);
+    const aResponse = await this.http.post('http://localhost:8080/createUser', this.currentUser)
+      .subscribe((data: User) => {
+        if (data.id != null) {
+          console.log(data);
+          this.currentUser = data;
+          sessionStorage.setItem('username', JSON.stringify(this.currentUser));
+          this.router.navigate(['']);
+        }
+      });
+  }
 }

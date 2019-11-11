@@ -1,26 +1,35 @@
 <div class="regCon">
   <div class="mat-title">Sign Up!</div>
   <mat-form-field>
-    <input matInput placeholder="First Name" required>
+    <input matInput placeholder="First Name" [formControl]="first" required>
+    <mat-error *ngIf="first.invalid">{{ getFirstErrorMessage() }}</mat-error>
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput placeholder="Last Name" required>
+    <input matInput placeholder="Last Name" [formControl]="last"  required>
+    <mat-error *ngIf="first.invalid">{{ getLastErrorMessage() }}</mat-error>
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput placeholder="Username" required>
+    <input matInput placeholder="Username" [formControl]="user"  required>
+    <mat-error *ngIf="first.invalid">{{ getUserErrorMessage() }}</mat-error>
   </mat-form-field>
 
   <mat-form-field>
     <input matInput placeholder="Enter your email" [formControl]="email" required>
-    <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error>
+    <mat-error *ngIf="email.invalid">{{ getEmailErrorMessage() }}</mat-error>
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput placeholder="Enter a password" [type]="hide ? 'password' : 'text'" required>
+    <input matInput placeholder="Enter a password" [type]="hide ? 'password' : 'text'" [formControl]="password" required>
     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide Password'" [attr.aria-pressed]="hide">
       <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
     </button>
+    <mat-error *ngIf="password.invalid">{{ getPasswordErrorMessage() }}</mat-error>
   </mat-form-field>
+
+  <div class="button-row">
+    <button mat-raised-button color="primary" (click)="buttonSignUp()">Sign Up</button>
+    <button mat-raised-button color="primary" routerLink="../login">Login Page</button>
+  </div>
 </div>

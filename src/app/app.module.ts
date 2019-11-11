@@ -8,19 +8,23 @@ import { NavbarComponent } from './interface_components/navbar/navbar.component'
 import { MaterialModule } from './material/material.module';
 import { SiteRoutingModule } from './site-routing/site-routing.module';
 import { RegisterComponent } from './interface_components/register/register.component';
+import { LoginComponent } from './interface_components/login/login.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NavbarComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    SiteRoutingModule
+    SiteRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

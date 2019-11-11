@@ -1,12 +1,15 @@
 .regCon {
   display: flex;
   flex-direction: column;
-  width: 50%;
-  margin-top: 5%;
+  width: 70%;
   margin-right: auto;
   margin-left: auto;
 }
 
 .regCon > * {
   width: 100%;
+}
+
+.button-row button {
+  margin-right: 17%;
 }
