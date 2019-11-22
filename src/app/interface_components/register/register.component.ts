@@ -3,6 +3,7 @@ import {FormControl, Validators} from '@angular/forms';
 import { User } from '../../model/user.model';
 import validate = WebAssembly.validate;
 import { AuthenticationServiceService } from '../../service/authentication-service.service'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -21,9 +22,16 @@ export class RegisterComponent implements OnInit {
 
   hide = true;
 
-  constructor(private authService: AuthenticationServiceService) { }
+  constructor(private authService: AuthenticationServiceService,
+              private router: Router) { }
 
   ngOnInit() {
+    this.authService.check();
+
+    if(this.authService.loggedIn())
+    {
+      this.router.navigate(['']);
+    }
   }
 
   buttonSignUp()
@@ -38,7 +46,7 @@ export class RegisterComponent implements OnInit {
           {
             if(!this.password.hasError('minlength') && this.password.value !== "")
             {
-                this.authService.currentUser = new User('0', this.first.value, this.last.value, this.user.value, this.email.value, this.password.value);
+                this.authService.currentUser = new User(null, this.first.value, this.last.value, this.user.value, this.email.value, this.password.value);
                 this.authService.signUp();
             }
           }
