@@ -1,12 +1,20 @@
 <mat-toolbar color="primary" class="navbar fixed-header">
-  <div>Site</div>
   <div>
-    <span>Home</span>
+    <button mat-button routerLink="/">Home</button>
+    <span *ngIf="isAuthenticated" ></span>
+    <button mat-button routerLink="/recipes" *ngIf="isAuthenticated" >Tournaments</button>
+    <span *ngIf="!isAuthenticated" ></span>
+    <button mat-button routerLink="/login" *ngIf="!isAuthenticated" >Login</button>
+    <span *ngIf="!isAuthenticated" ></span>
+    <button mat-button routerLink="/register" *ngIf="!isAuthenticated" >Register</button>
+  </div>
+
+  <div *ngIf="isAuthenticated" style="text-align: right">
       <button mat-button [mat-menu-trigger-for]="appMenu"><mat-icon>account_circle</mat-icon></button>
   </div>
 </mat-toolbar>
 
 <mat-menu #appMenu="matMenu">
-  <button mat-menu-item>Account Settings</button>
-  <button mat-menu-item>Logout</button>
+  <button mat-menu-item routerLink="/account" >Account Settings</button>
+  <button mat-menu-item (click)="logout()">Logout</button>
 </mat-menu>

@@ -1,5 +1,5 @@
 <div class="regCon">
-  <div class="mat-title">Sign Up!</div>
+  <div [ngClass]="{'mat-title': signUpText === 'Register', 'red-error' : signUpText != 'Register'}">{{ signUpText }}</div>
   <mat-form-field>
     <input matInput placeholder="First Name" [formControl]="first" required>
     <mat-error *ngIf="first.invalid">{{ getFirstErrorMessage() }}</mat-error>
@@ -30,6 +30,9 @@
 
   <div class="button-row">
     <button mat-raised-button color="primary" (click)="buttonSignUp()">Sign Up</button>
-    <button mat-raised-button color="primary" routerLink="../login">Login Page</button>
   </div>
+</div>
+
+<div class="container" [style.visibility]="progressShow ? 'visible' : 'hidden'">
+  <mat-spinner></mat-spinner>
 </div>

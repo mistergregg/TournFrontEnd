@@ -11,7 +11,7 @@
 }
 
 .button-row button {
-  margin-right: 17%;
+  margin-left: 40%;
 }
 
 .container {
@@ -25,7 +25,6 @@
 }
 
 .container mat-spinner{
-
   display: flex;
   position: absolute;
   margin-left: 35%;
@@ -33,6 +32,31 @@
   opacity: 1;
 }
 
-.red-error {
-  color: darkred;
+.editable{
+  border:none;
+  outline:none;
+  background:transparent;
+  font-size: larger;
+  margin-bottom: 20px;
+}
+
+.editable2{
+  border:none;
+  outline:none;
+  background:transparent;
+  color: red;
+  font-size: larger;
+  margin-bottom: 20px;
+}
+
+.errorClass{
+  color: red;
+  font-size: larger;
+  margin-bottom: 20px;
+}
+
+.updateClass{
+  color: lawngreen;
+  font-size: larger;
+  margin-bottom: 20px;
 }

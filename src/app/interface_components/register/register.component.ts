@@ -2,15 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import { User } from '../../model/user.model';
 import validate = WebAssembly.validate;
-import { AuthenticationServiceService } from '../../service/authentication-service.service'
 import { Router } from '@angular/router';
+import { AuthenticationService, UserResponse } from 'src/app/service/authentication.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
 
   tmpUser: User;
 
@@ -21,18 +22,11 @@ export class RegisterComponent implements OnInit {
   password = new FormControl('', [Validators.required, Validators.minLength(4)]);
 
   hide = true;
+  progressShow = false;
+  signUpText = "Register";
 
-  constructor(private authService: AuthenticationServiceService,
+  constructor(private authService: AuthenticationService,
               private router: Router) { }
-
-  ngOnInit() {
-    this.authService.check();
-
-    if(this.authService.loggedIn())
-    {
-      this.router.navigate(['']);
-    }
-  }
 
   buttonSignUp()
   {
@@ -46,8 +40,32 @@ export class RegisterComponent implements OnInit {
           {
             if(!this.password.hasError('minlength') && this.password.value !== "")
             {
-                this.authService.currentUser = new User(null, this.first.value, this.last.value, this.user.value, this.email.value, this.password.value);
-                this.authService.signUp();
+              this.progressShow = true;
+
+              const firstS = this.first.value;
+              const lastS = this.last.value;
+              const userS = this.user.value;
+              const emailS = this.email.value;
+              const passS = this.password.value;
+
+              let signUp: Observable<UserResponse>;
+              signUp = this.authService.signUp(firstS, lastS, userS, emailS, passS);
+
+              signUp.subscribe(resData => {
+                this.progressShow = false;
+
+                console.log(resData);
+
+                if (resData.token)
+                {
+                  this.router.navigate(['']);
+                }
+
+                this.signUpText = "Username already in use!";
+              }, error => {
+                this.signUpText = "Could not connect to server";
+                this.progressShow = false;
+              });
             }
           }
         }

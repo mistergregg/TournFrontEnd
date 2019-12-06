@@ -1,5 +1,5 @@
 <div class="regCon">
-  <div [ngClass]="{'mat-title': loginText === 'Login', 'red-error' : loginText === 'Invalid username or password'}">{{ loginText }}</div>
+  <div [ngClass]="{'mat-title': loginText === 'Login', 'red-error' : loginText != 'Login'}">{{ loginText }}</div>
 
   <mat-form-field (change)="changeBackLogin()">
     <input matInput placeholder="Username" [formControl]="user" required>
@@ -7,7 +7,7 @@
   </mat-form-field>
 
   <mat-form-field (change)="changeBackLogin()">
-    <input matInput placeholder="Enter a password" [type]="hide ? 'password' : 'text'" [formControl]="pass" required>
+    <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" [formControl]="pass" required>
     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide Password'" [attr.aria-pressed]="hide">
       <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
     </button>
@@ -16,7 +16,6 @@
 
   <div class="button-row">
     <button mat-raised-button color="primary" (click)="buttonLogin()">Login</button>
-    <button mat-raised-button color="primary" routerLink="../register">Sign Up</button>
   </div>
 </div>
 

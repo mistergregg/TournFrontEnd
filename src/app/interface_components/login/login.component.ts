@@ -1,16 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormControl } from '@angular/forms';
-import { AuthenticationServiceService } from 'src/app/service/authentication-service.service';
 import { Router } from '@angular/router';
 import { User } from 'src/app/model/user.model';
 import { HttpClient } from '@angular/common/http';
+import { AuthenticationService, UserResponse } from 'src/app/service/authentication.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
   user = new FormControl('', [Validators.required, Validators.minLength(3)]);
   pass = new FormControl('', [Validators.required, Validators.minLength(5)]);
@@ -19,18 +20,8 @@ export class LoginComponent implements OnInit {
   tmpUser: User;
   loginText = "Login";
 
-  constructor(private authService: AuthenticationServiceService,
-              private router: Router,
-              private http: HttpClient) { }
-
-  ngOnInit() {
-    this.authService.check();
-
-    if(this.authService.loggedIn())
-    {
-      this.router.navigate(['']);
-    }
-  }
+  constructor(private authService: AuthenticationService,
+              private router: Router) { }
 
   getUserErrorMessage() {
     return this.user.hasError('minlength') ? 'Username not valid' : '';
@@ -50,21 +41,29 @@ export class LoginComponent implements OnInit {
     {
       if(!this.pass.hasError('minlength') && this.pass.value !== "")
       {
-        this.tmpUser = new User();
-        this.tmpUser.username = this.user.value;
-        this.tmpUser.password = this.pass.value;
         this.progressShow = true;
 
-        this.authService.login(this.tmpUser).subscribe((data: User) => {
-          if (data.id != null) {
-            console.log(data);
-            this.router.navigate(['']);
-          }else
-          {
-            this.loginText = "Invalid username or password"
-            this.progressShow = false;
-          }
-        })
+        const userS = this.user.value;
+        const passS = this.pass.value;
+
+        let signUp: Observable<UserResponse>;
+        signUp = this.authService.login(userS, passS);
+
+        signUp.subscribe(resData => {
+              this.progressShow = false;
+
+              console.log(resData);
+
+              if (resData.token)
+              {
+                this.router.navigate(['']);
+              }
+
+              this.loginText = "Username or Password Invalid!";
+        }, error => {
+              this.loginText = "Could not connect to server";
+              this.progressShow = false;
+        });
       }
     }
   }

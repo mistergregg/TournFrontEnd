@@ -1,0 +1,37 @@
+<div class="regCon">
+  <div class="errorClass">
+    {{ errorText }}
+  </div>
+  <div class="updateClass">
+    {{ updateText }}
+  </div>
+  <span></span>
+  <div>
+    First name:
+    <input matInput placeholder="First Name" #first required [value]="user.firstName" class="editable" (keyup)="onFirstChange()">
+  </div>
+  <span></span>
+  <div>
+    Last name:
+    <input matInput placeholder="Last Name" #last required [value]="user.lastName" class="editable" (keyup)="onLastChange()">
+  </div>
+  <span></span>
+  <div>
+    Username:
+    <input matInput placeholder="Username" #username required [value]="user.username" class="editable" (keyup)="onUsernameChange()">
+  </div>
+  <span></span>
+  <div>
+    Email:
+    <input matInput placeholder="Email" #email required [value]="user.email" class="editable" (keyup)="onEmailChange()">
+  </div>
+  <span></span>
+
+  <div class="button-row">
+    <button mat-raised-button color="primary" #theButton (click)="openDialog()">Update Information</button>
+  </div>
+</div>
+
+<div class="container" [style.visibility]="progressShow ? 'visible' : 'hidden'">
+  <mat-spinner></mat-spinner>
+</div>

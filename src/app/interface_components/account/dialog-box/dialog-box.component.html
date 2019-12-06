@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Password</h1>
+<div mat-dialog-content>
+  <p>Please enter your password to save</p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="password" type="password">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="password" cdkFocusInitial>Save</button>
+</div>

@@ -10,6 +10,10 @@ import { SiteRoutingModule } from './site-routing/site-routing.module';
 import { RegisterComponent } from './interface_components/register/register.component';
 import { LoginComponent } from './interface_components/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+import { AccountComponent } from './interface_components/account/account.component';
+import { DialogBoxComponent } from './interface_components/account/dialog-box/dialog-box.component';
+import { TournamentHomeComponent } from './interface_components/tournament-home/tournament-home.component';
 
 @NgModule({
   declarations: [
@@ -17,14 +21,21 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     NavbarComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    AccountComponent,
+    DialogBoxComponent,
+    TournamentHomeComponent
+  ],
+  entryComponents: [
+    DialogBoxComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
     SiteRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
