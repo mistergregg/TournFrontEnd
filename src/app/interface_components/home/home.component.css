@@ -1,0 +1,26 @@
+.regCon {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.regCon > * {
+  width: 100%;
+}
+
+.mainDiv {
+  padding: 20px;
+  overflow: auto;
+  margin: auto;
+}
+
+.mainDiv > * {
+  width: 100%;
+}
+
+.button-row button {
+  margin-right: 17%;
+}

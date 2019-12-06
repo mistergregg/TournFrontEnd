@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
-import {MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule, MatMenuModule, MatToolbarModule, MatProgressSpinnerModule, MatDialogModule } from '@angular/material';
+import {MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule, MatMenuModule, MatToolbarModule, MatProgressSpinnerModule, MatDialogModule, MatTooltipModule } from '@angular/material';
 import {ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { DialogBoxComponent } from '../interface_components/account/dialog-box/dialog-box.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const MaterialComponents = [
   MatButtonModule,
@@ -13,7 +14,9 @@ const MaterialComponents = [
   ReactiveFormsModule,
   MatProgressSpinnerModule,
   FormsModule,
-  MatDialogModule
+  MatDialogModule,
+  BrowserAnimationsModule,
+  MatTooltipModule
 ];
 
 @NgModule({

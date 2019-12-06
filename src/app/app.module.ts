@@ -13,7 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { AccountComponent } from './interface_components/account/account.component';
 import { DialogBoxComponent } from './interface_components/account/dialog-box/dialog-box.component';
-import { TournamentHomeComponent } from './interface_components/tournament-home/tournament-home.component';
+import { TournamentHomeComponent } from './interface_components/tournament-pages/tournament-home/tournament-home.component';
 
 @NgModule({
   declarations: [

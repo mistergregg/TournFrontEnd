@@ -52,8 +52,6 @@ export class LoginComponent {
         signUp.subscribe(resData => {
               this.progressShow = false;
 
-              console.log(resData);
-
               if (resData.token)
               {
                 this.router.navigate(['']);

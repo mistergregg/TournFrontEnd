@@ -2,7 +2,7 @@
   <div>
     <button mat-button routerLink="/">Home</button>
     <span *ngIf="isAuthenticated" ></span>
-    <button mat-button routerLink="/recipes" *ngIf="isAuthenticated" >Tournaments</button>
+    <button mat-button routerLink="/tournament" *ngIf="isAuthenticated" >Tournaments</button>
     <span *ngIf="!isAuthenticated" ></span>
     <button mat-button routerLink="/login" *ngIf="!isAuthenticated" >Login</button>
     <span *ngIf="!isAuthenticated" ></span>

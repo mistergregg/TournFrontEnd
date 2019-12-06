@@ -1,2 +1,11 @@
-<app-navbar></app-navbar>
-<p>Home</p>
+<div class="regCon">
+  <div class="mainDiv">
+    <mat-form-field>
+      <input matInput placeholder="Tournament Id" [formControl]="tourn" required>
+    </mat-form-field>
+
+    <div class="button-row">
+      <button mat-raised-button color="primary" (click)="buttonSignUp()">Search</button>
+    </div>
+  </div>
+</div>
