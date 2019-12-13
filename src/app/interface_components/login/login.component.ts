@@ -14,7 +14,7 @@ import { Observable } from 'rxjs';
 export class LoginComponent {
 
   user = new FormControl('', [Validators.required, Validators.minLength(3)]);
-  pass = new FormControl('', [Validators.required, Validators.minLength(5)]);
+  pass = new FormControl('', [Validators.required, Validators.minLength(4)]);
   hide = true;
   progressShow = false;
   tmpUser: User;

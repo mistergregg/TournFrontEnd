@@ -10,3 +10,7 @@
 .mat-icon {
   transform: scale(2);
 }
+
+.mat-icon:hover  {
+  transform: scale(3);
+}

@@ -7,7 +7,7 @@
   </mat-form-field>
 
   <mat-form-field (change)="changeBackLogin()">
-    <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" [formControl]="pass" required>
+    <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" [formControl]="pass" (keyup.enter)="buttonLogin()" required>
     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide Password'" [attr.aria-pressed]="hide">
       <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
     </button>

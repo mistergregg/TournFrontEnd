@@ -14,6 +14,11 @@ import { CommonModule } from '@angular/common';
 import { AccountComponent } from './interface_components/account/account.component';
 import { DialogBoxComponent } from './interface_components/account/dialog-box/dialog-box.component';
 import { TournamentHomeComponent } from './interface_components/tournament-pages/tournament-home/tournament-home.component';
+import { CreateTournamentComponent } from './interface_components/tournament-pages/tournament-home/create-tournament/create-tournament.component';
+import { TeamHomeComponent } from './interface_components/tournament-pages/team-home/team-home.component';
+import { CreateTeamComponent } from './interface_components/tournament-pages/team-home/create-team/create-team.component';
+import { YourTeamsComponent } from './interface_components/tournament-pages/team-home/your-teams/your-teams.component';
+import { SearchTeamsComponent } from './interface_components/tournament-pages/team-home/search-teams/search-teams.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +29,12 @@ import { TournamentHomeComponent } from './interface_components/tournament-pages
     LoginComponent,
     AccountComponent,
     DialogBoxComponent,
-    TournamentHomeComponent
+    TournamentHomeComponent,
+    CreateTournamentComponent,
+    TeamHomeComponent,
+    CreateTeamComponent,
+    YourTeamsComponent,
+    SearchTeamsComponent
   ],
   entryComponents: [
     DialogBoxComponent

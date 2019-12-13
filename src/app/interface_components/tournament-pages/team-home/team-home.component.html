@@ -1,0 +1,37 @@
+<div class="main">
+  <div class="divButton" [ngClass]="{'doubleSize': showSearchTeams === true}">
+    <button mat-button
+            matTooltip="Search for a Team"
+            (click)="toggleSearchTeams()">
+      <mat-icon>search</mat-icon>
+    </button></div>
+
+  <div class="divButton" [ngClass]="{'doubleSize': showYourTeams === true}">
+    <button mat-button
+            matTooltip="Your Teams"
+            (click)="toggleDisplayYourTeams()">
+      <mat-icon>group icon</mat-icon>
+    </button></div>
+
+  <div class="divButton" [ngClass]="{'doubleSize': showCreateTeam === true}">
+    <button mat-button
+            matTooltip="Create a new Team"
+            (click)="toggleDisplayCreateTeam()">
+      <mat-icon>group add icon</mat-icon>
+    </button></div>
+</div>
+<div [hidden] = "!showCreateTeam">
+  <app-create-team></app-create-team>
+</div>
+
+<div [hidden] = "!showYourTeams">
+  <app-your-teams></app-your-teams>
+</div>
+
+<div [hidden] = "!showSearchTeams">
+  <app-search-teams></app-search-teams>
+</div>
+
+<div class="container" [style.visibility]="progressShow ? 'visible' : 'hidden'">
+  <mat-spinner></mat-spinner>
+</div>

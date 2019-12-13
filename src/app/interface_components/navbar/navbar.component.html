@@ -2,6 +2,8 @@
   <div>
     <button mat-button routerLink="/">Home</button>
     <span *ngIf="isAuthenticated" ></span>
+    <button mat-button routerLink="/teams" *ngIf="isAuthenticated" >Teams</button>
+    <span *ngIf="!isAuthenticated" ></span>
     <button mat-button routerLink="/tournament" *ngIf="isAuthenticated" >Tournaments</button>
     <span *ngIf="!isAuthenticated" ></span>
     <button mat-button routerLink="/login" *ngIf="!isAuthenticated" >Login</button>

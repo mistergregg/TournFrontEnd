@@ -7,13 +7,15 @@ import { AuthenticationSignUpGuard } from './authenticationSignUp.guard';
 import { AccountComponent } from '../interface_components/account/account.component';
 import { AuthenticationGuard } from './authentication.guard';
 import { TournamentHomeComponent } from '../interface_components/tournament-pages/tournament-home/tournament-home.component';
+import { TeamHomeComponent } from '../interface_components/tournament-pages/team-home/team-home.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'register', component: RegisterComponent, canActivate: [AuthenticationSignUpGuard] },
   { path: 'login', component: LoginComponent, canActivate: [AuthenticationSignUpGuard] },
   { path: 'account', component: AccountComponent, canActivate: [AuthenticationGuard] },
-  { path: 'tournament', component: TournamentHomeComponent, canActivate: [AuthenticationGuard]}
+  { path: 'tournament', component: TournamentHomeComponent, canActivate: [AuthenticationGuard]},
+  { path: 'teams', component: TeamHomeComponent, canActivate: [AuthenticationGuard]}
 ];
 
 @NgModule({

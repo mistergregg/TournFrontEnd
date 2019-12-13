@@ -1,0 +1,18 @@
+<div class="paper">
+  <div class="regCon">
+    <div style="color: red">{{ anyErrors }}</div>
+    <mat-form-field style="margin-top: 2%">
+      <input matInput placeholder="Enter Your Team Name" [formControl]="teamName" required>
+      <mat-error *ngIf="teamName.invalid">{{ getTeamNameError() }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Enter a description of your team" [formControl]="teamDescription"  required>
+      <mat-error *ngIf="teamDescription.invalid">{{ getDescriptionError() }}</mat-error>
+    </mat-form-field>
+
+    <div class="button-row">
+      <button mat-raised-button color="primary" (click)="buttonCreateTeam()">Create Team</button>
+    </div>
+  </div>
+</div>

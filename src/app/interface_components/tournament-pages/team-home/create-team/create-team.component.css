@@ -1,0 +1,59 @@
+@keyframes slideInFromLeft {
+  0% {
+    transform: scale(0);
+    -webkit-transform: scale(0);
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+    -webkit-transform: scale(1) rotate(360deg);
+  }
+}
+
+.paper{
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  flex: auto;
+  background-color: #3F51B5;
+  height: 30vh;
+  animation: .5s ease-out 0s 1 slideInFromLeft;
+  border-radius: 20px;
+}
+
+.paper:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.regCon {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin-right: auto;
+  margin-left: auto;
+  height: 70vh;
+  text-align: right;
+}
+
+input {
+  text-align: center;
+  color: white;
+}
+
+input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  opacity: .6; /* Firefox */
+}
+
+input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: white;
+}
+
+input::-ms-input-placeholder { /* Microsoft Edge */
+  color: white;
+}
+
+.red-error {
+  color: darkred;
+}
