@@ -1,1 +1,15 @@
-<p>your-teams works!</p>
+<h2 class="teamsH">Your Teams</h2>
+<ul class="teamList">
+  <li *ngFor="let team of teams" class="teamItem">
+    <span class="teamSpan">{{team.name}}</span>
+    <span class="middleSpan">: </span>
+    <span class="descSpan">{{team.description}}</span>
+    <span class="gear">&#9881;</span>
+  </li>
+</ul>
+
+<ul class="pagesList">
+  <li class="teamClass" *ngFor="let page of teamPages">
+    <button (click)="pageClick(page)" [ngClass]="{'chosenButton': currentPage === page}">{{page}}</button>
+  </li>
+</ul>

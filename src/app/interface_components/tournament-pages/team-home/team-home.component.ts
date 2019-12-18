@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material';
 
 @Component({
   selector: 'app-team-home',
@@ -13,7 +14,7 @@ export class TeamHomeComponent implements OnInit {
 
   progressShow = false;
 
-  constructor() { }
+  constructor(private snackBar: MatSnackBar) { }
 
   toggleDisplayCreateTeam() {
     this.showYourTeams = false;
@@ -35,5 +36,11 @@ export class TeamHomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.showYourTeams = true;
+  }
+
+  writeASnack(message) {
+    this.snackBar.open(message, 'Dismiss', {
+      duration: 2000,
+    });
   }
 }

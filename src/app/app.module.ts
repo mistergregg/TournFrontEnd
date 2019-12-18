@@ -19,6 +19,7 @@ import { TeamHomeComponent } from './interface_components/tournament-pages/team-
 import { CreateTeamComponent } from './interface_components/tournament-pages/team-home/create-team/create-team.component';
 import { YourTeamsComponent } from './interface_components/tournament-pages/team-home/your-teams/your-teams.component';
 import { SearchTeamsComponent } from './interface_components/tournament-pages/team-home/search-teams/search-teams.component';
+import { EditTeamDialogComponent } from './interface_components/tournament-pages/team-home/your-teams/edit-team-dialog/edit-team-dialog.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { SearchTeamsComponent } from './interface_components/tournament-pages/te
     TeamHomeComponent,
     CreateTeamComponent,
     YourTeamsComponent,
-    SearchTeamsComponent
+    SearchTeamsComponent,
+    EditTeamDialogComponent
   ],
   entryComponents: [
     DialogBoxComponent

@@ -40,7 +40,6 @@ export class CreateTeamComponent {
 
         let createTeam: Observable<Team>;
         createTeam = this.teamService.createTeam(name, description);
-        console.log(name + description);
 
         createTeam.subscribe(resData => {
           if (resData.name != null)
@@ -48,8 +47,12 @@ export class CreateTeamComponent {
             this.teamComponent.showCreateTeam = false;
             this.teamComponent.showYourTeams = true;
             this.teamComponent.progressShow = false;
+
+            this.teamService.getAmountPages().subscribe();
+            this.teamComponent.writeASnack(resData.name + " created!")
           }
         }, error => {
+          console.log(error);
           this.anyErrors = "Could not connect to server";
           this.teamComponent.progressShow = false;
         });

@@ -1,3 +1,4 @@
+import { UserToken } from './usertoken.mode';
 
 export interface TeamPlayer {
   userId?: string,
@@ -16,5 +17,5 @@ export class Team {
     public wins?: number,
     public looses?: number,
     public teamSize?: number,
-    public userToken?: string){}
+    public userToken?: UserToken){}
 }
