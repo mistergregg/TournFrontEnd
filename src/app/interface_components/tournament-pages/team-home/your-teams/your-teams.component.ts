@@ -15,8 +15,8 @@ export class YourTeamsComponent implements OnInit {
   private teamSubscript: Subscription;
   private teamPageSub: Subscription;
 
-  private teams = new Array<Team>();
-  private teamPages = new Array();
+  public teams = new Array<Team>();
+  public teamPages = new Array();
   public currentPage = 1;
 
   constructor(private teamService: ManageTeamService, public dialog: MatDialog) { }
