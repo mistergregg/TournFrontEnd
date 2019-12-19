@@ -6,17 +6,29 @@
     <span *ngIf="!isAuthenticated" ></span>
     <button mat-button routerLink="/tournament" *ngIf="isAuthenticated" >Tournaments</button>
     <span *ngIf="!isAuthenticated" ></span>
+    <button mat-button routerLink="/players" *ngIf="isAuthenticated" >Players</button>
+    <span *ngIf="!isAuthenticated" ></span>
     <button mat-button routerLink="/login" *ngIf="!isAuthenticated" >Login</button>
     <span *ngIf="!isAuthenticated" ></span>
     <button mat-button routerLink="/register" *ngIf="!isAuthenticated" >Register</button>
   </div>
 
   <div *ngIf="isAuthenticated" style="text-align: right">
+    <div style="float: left">
+      <button mat-button [mat-menu-trigger-for]="appMenuMessage"><mat-icon>mail_outline</mat-icon></button>
+    </div>
+    <span></span>
+    <div style="float: right">
       <button mat-button [mat-menu-trigger-for]="appMenu"><mat-icon>account_circle</mat-icon></button>
+    </div>
   </div>
 </mat-toolbar>
 
 <mat-menu #appMenu="matMenu">
   <button mat-menu-item routerLink="/account" >Account Settings</button>
   <button mat-menu-item (click)="logout()">Logout</button>
+</mat-menu>
+
+<mat-menu #appMenuMessage="matMenu">
+  <button mat-menu-item >No New Messages</button>
 </mat-menu>

@@ -1,1 +1,21 @@
-<p>edit-team-dialog works!</p>
+<h1 mat-dialog-title>{{data.name}}</h1>
+<div mat-dialog-content class="formBody">
+  <p>Team Description</p>
+  <mat-form-field>
+    <input matInput value="{{data.description}}" [formControl]="teamDescription">
+  </mat-form-field>
+  <p>Team Owner</p>
+    <span>Hello {{data.ownerName}}</span>
+  <p>Team Members</p>
+    <div *ngFor="let player of data.userList">
+      <span>{{player.userName}}</span>
+      <span class="delete" (click)="deletePlayerFromTeam(data.id, player.id)"><mat-icon style="cursor: pointer">delete</mat-icon></span>
+    </div>
+  <p>Score</p>
+    <div>Wins: {{data.wins}}</div>
+  <div>Looses: {{data.looses}}</div>
+</div>
+<div mat-dialog-actions class="buttonsBody">
+  <button mat-button (click)="onDeleteTeam(data.id)">Delete Team</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Save</button>
+</div>

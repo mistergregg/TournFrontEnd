@@ -4,7 +4,7 @@
     <span class="teamSpan">{{team.name}}</span>
     <span class="middleSpan">: </span>
     <span class="descSpan">{{team.description}}</span>
-    <span class="gear">&#9881;</span>
+    <span class="gear" (click)="editTeam(team.id)">&#9881;</span>
   </li>
 </ul>
 

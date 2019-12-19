@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material';
 
+@Injectable({
+  providedIn: 'root'
+})
 @Component({
   selector: 'app-team-home',
   templateUrl: './team-home.component.html',

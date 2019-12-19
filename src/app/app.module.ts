@@ -39,7 +39,8 @@ import { EditTeamDialogComponent } from './interface_components/tournament-pages
     EditTeamDialogComponent
   ],
   entryComponents: [
-    DialogBoxComponent
+    DialogBoxComponent,
+    EditTeamDialogComponent
   ],
   imports: [
     BrowserModule,

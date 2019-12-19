@@ -64,4 +64,14 @@ export class ManageTeamService {
       this.amountPages.next(Math.floor(resData / 10) + 1);
     }));
   }
+
+  deleteUserFromTeam(team, user) {
+
+    const tmp = {teamid: team, userId: user};
+
+    return this.http.post<number>("http://localhost:8080/tournaments/getAmountTeams", tmp).pipe(tap(resData => {
+
+      this.amountPages.next(Math.floor(resData / 10) + 1);
+    }));
+  }
 }
