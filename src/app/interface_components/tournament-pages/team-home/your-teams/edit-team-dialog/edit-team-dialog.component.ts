@@ -32,6 +32,17 @@ export class EditTeamDialogComponent {
     }
   }
 
-  onDeleteTeam(id) {}
+  onDeleteTeam(id) {
+    this.teamService.deleteTeam(id).subscribe(resData => {
+      if(resData === 1)
+      {
+        this.teamComponent.writeASnack("Team Deleted!")
+      } else {
+        this.teamComponent.writeASnack("Could not delete team :(")
+      }
+    }, error => {
+      this.teamComponent.writeASnack("Could not delete team :(")
+    });
+  }
 
 }

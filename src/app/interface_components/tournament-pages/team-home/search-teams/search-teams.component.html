@@ -1,1 +1,26 @@
-<p>search-teams works!</p>
+<div align="center">
+  <mat-form-field style="margin-top: 2%">
+    <input matInput placeholder="Search for a team by name..." [formControl]="teamSearch" (keyup)=onKeyupEvent($event)>
+  </mat-form-field>
+</div>
+
+<div class="searchDiv">
+  <ul class="teamList">
+    <li *ngFor="let name of searchRes" class="teamItem">
+       <span class="teamSpan" routerLink="/team/{{name.id}}" >{{name.name}}</span>
+       <span class=""> : </span>
+       <span class="">Leader, </span>
+       <span class="middleSpan">{{name.ownerName}}</span>
+       <span class=""> - </span>
+       <span class="descSpan">{{name.description}}</span>
+       <span *ngIf="name.userList" class="gear"><mat-icon>group_add</mat-icon></span>
+       <span *ngIf="!name.userList" class="gearAdded"><mat-icon>group_add</mat-icon></span>
+    </li>
+  </ul>
+</div>
+
+<ul class="pagesList" *ngIf="enterHit">
+  <li class="teamClass" *ngFor="let page of searchPages">
+    <button (click)="loadSearch(page)" [ngClass]="{'chosenButton': currentPage === page}">{{page}}</button>
+  </li>
+</ul>

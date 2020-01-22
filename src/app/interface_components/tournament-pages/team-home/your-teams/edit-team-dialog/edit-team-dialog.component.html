@@ -5,7 +5,7 @@
     <input matInput value="{{data.description}}" [formControl]="teamDescription">
   </mat-form-field>
   <p>Team Owner</p>
-    <span>Hello {{data.ownerName}}</span>
+    <span>{{data.ownerName}}</span>
   <p>Team Members</p>
     <div *ngFor="let player of data.userList">
       <span>{{player.userName}}</span>
@@ -16,6 +16,6 @@
   <div>Looses: {{data.looses}}</div>
 </div>
 <div mat-dialog-actions class="buttonsBody">
-  <button mat-button (click)="onDeleteTeam(data.id)">Delete Team</button>
+  <button mat-button (click)="onDeleteTeam(data.id)" [mat-dialog-close]="data">Delete Team</button>
   <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Save</button>
 </div>

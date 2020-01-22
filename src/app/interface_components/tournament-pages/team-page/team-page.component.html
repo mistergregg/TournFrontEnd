@@ -1,0 +1,10 @@
+<div class="mainBody">
+  <h1>{{aTeam.name}}</h1>
+  <h2>{{aTeam.description}}</h2>
+  <p>Owner: {{aTeam.ownerName}}</p>
+  <p><u>Team Members</u></p>
+  <div *ngFor="let player of aTeam.userList">
+    <span>{{player.userName}}</span>
+    <span class="delete" (click)="deletePlayerFromTeam(data.id, player.id)"><mat-icon style="cursor: pointer">delete</mat-icon></span>
+  </div>
+</div>

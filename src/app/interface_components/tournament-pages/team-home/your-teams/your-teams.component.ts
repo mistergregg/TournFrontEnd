@@ -40,8 +40,7 @@ export class YourTeamsComponent implements OnInit {
     this.teamService.getAmountPages().subscribe();
   }
 
-  pageClick(num)
-    {
+  pageClick(num) {
     this.currentPage = num;
     let retrievePages: Observable<number>;
     retrievePages = this.teamService.getAmountPages();
@@ -49,20 +48,18 @@ export class YourTeamsComponent implements OnInit {
     return this.teamService.retrieveTeams(num).subscribe();
   }
 
-  editTeam(teamId)
-  {
+  editTeam(teamId) {
     var aTeam = this.teams.filter(function(item) {
       return item.id === teamId;
     });
-
-    console.log(aTeam[0]);
 
     const dialogRef = this.dialog.open(EditTeamDialogComponent, {
       width: '400px', data: aTeam[0]
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      console.log("stuff4");
+      this.pageClick(this.currentPage);
     });
   }
 }

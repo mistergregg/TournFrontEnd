@@ -20,6 +20,9 @@ import { CreateTeamComponent } from './interface_components/tournament-pages/tea
 import { YourTeamsComponent } from './interface_components/tournament-pages/team-home/your-teams/your-teams.component';
 import { SearchTeamsComponent } from './interface_components/tournament-pages/team-home/search-teams/search-teams.component';
 import { EditTeamDialogComponent } from './interface_components/tournament-pages/team-home/your-teams/edit-team-dialog/edit-team-dialog.component';
+import { PlayerSearchComponent } from './interface_components/tournament-pages/player-search/player-search.component';
+import { TeamPageComponent } from './interface_components/tournament-pages/team-page/team-page.component';
+import { PageNotFoundComponent } from './interface_components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,10 @@ import { EditTeamDialogComponent } from './interface_components/tournament-pages
     CreateTeamComponent,
     YourTeamsComponent,
     SearchTeamsComponent,
-    EditTeamDialogComponent
+    EditTeamDialogComponent,
+    PlayerSearchComponent,
+    TeamPageComponent,
+    PageNotFoundComponent
   ],
   entryComponents: [
     DialogBoxComponent,
@@ -50,7 +56,7 @@ import { EditTeamDialogComponent } from './interface_components/tournament-pages
     HttpClientModule,
     CommonModule
   ],
-  providers: [],
+  providers: [YourTeamsComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,7 +1,7 @@
 <h2 class="teamsH">Your Teams</h2>
 <ul class="teamList">
   <li *ngFor="let team of teams" class="teamItem">
-    <span class="teamSpan">{{team.name}}</span>
+    <span class="teamSpan" routerLink="/team/{{team.id}}" >{{team.name}}</span>
     <span class="middleSpan">: </span>
     <span class="descSpan">{{team.description}}</span>
     <span class="gear" (click)="editTeam(team.id)">&#9881;</span>

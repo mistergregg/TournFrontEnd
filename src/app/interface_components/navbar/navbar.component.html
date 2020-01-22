@@ -6,8 +6,6 @@
     <span *ngIf="!isAuthenticated" ></span>
     <button mat-button routerLink="/tournament" *ngIf="isAuthenticated" >Tournaments</button>
     <span *ngIf="!isAuthenticated" ></span>
-    <button mat-button routerLink="/players" *ngIf="isAuthenticated" >Players</button>
-    <span *ngIf="!isAuthenticated" ></span>
     <button mat-button routerLink="/login" *ngIf="!isAuthenticated" >Login</button>
     <span *ngIf="!isAuthenticated" ></span>
     <button mat-button routerLink="/register" *ngIf="!isAuthenticated" >Register</button>
@@ -15,7 +13,7 @@
 
   <div *ngIf="isAuthenticated" style="text-align: right">
     <div style="float: left">
-      <button mat-button [mat-menu-trigger-for]="appMenuMessage"><mat-icon>mail_outline</mat-icon></button>
+      <button mat-button [mat-menu-trigger-for]="appMenuMessage"><mat-icon >mail_outline</mat-icon></button>
     </div>
     <span></span>
     <div style="float: right">

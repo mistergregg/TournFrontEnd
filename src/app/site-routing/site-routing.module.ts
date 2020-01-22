@@ -8,6 +8,9 @@ import { AccountComponent } from '../interface_components/account/account.compon
 import { AuthenticationGuard } from './authentication.guard';
 import { TournamentHomeComponent } from '../interface_components/tournament-pages/tournament-home/tournament-home.component';
 import { TeamHomeComponent } from '../interface_components/tournament-pages/team-home/team-home.component';
+import { PlayerSearchComponent } from '../interface_components/tournament-pages/player-search/player-search.component';
+import { TeamPageComponent } from '../interface_components/tournament-pages/team-page/team-page.component';
+import { PageNotFoundComponent } from '../interface_components/page-not-found/page-not-found.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -15,7 +18,14 @@ const appRoutes: Routes = [
   { path: 'login', component: LoginComponent, canActivate: [AuthenticationSignUpGuard] },
   { path: 'account', component: AccountComponent, canActivate: [AuthenticationGuard] },
   { path: 'tournament', component: TournamentHomeComponent, canActivate: [AuthenticationGuard]},
-  { path: 'teams', component: TeamHomeComponent, canActivate: [AuthenticationGuard]}
+  { path: 'teams', component: TeamHomeComponent, canActivate: [AuthenticationGuard]},
+  { path: 'team/:teamId', component: TeamPageComponent, canActivate: [AuthenticationGuard]},
+  { path: 'search', component: PlayerSearchComponent, canActivate: [AuthenticationGuard]},
+  { path: 'search/:username', component: PlayerSearchComponent, canActivate: [AuthenticationGuard]},
+  { path: 'player/:username', component: PlayerSearchComponent, canActivate: [AuthenticationGuard]},
+
+
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({

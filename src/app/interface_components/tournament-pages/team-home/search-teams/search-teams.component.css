@@ -1,0 +1,72 @@
+.searchDiv {
+  padding-left: 15%;
+  padding-right: 15%;
+  width: 70%;
+  align-content: center;
+}
+.teamItem {
+  display: block;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  text-align: left;
+}
+
+.teamSpan {
+  color: #35356A;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.descSpan {
+  color: #35356A;
+}
+
+.middleSpan {
+  color: #35356A;
+  font-weight: bold;
+}
+
+.gear {
+  margin-left: 10px;
+  font-size: x-large;
+  color: forestgreen;
+  cursor: pointer;
+  text-shadow: 1px 1px darkred;
+}
+
+.gearAdded {
+  margin-left: 10px;
+  font-size: x-large;
+  color: black;
+  cursor: default;
+  text-shadow: 1px 1px darkred;
+}
+
+.gear:hover {
+  font-size: xx-large;
+}
+
+.pagesList {
+  text-align: center;
+}
+
+.teamClass {
+  display: inline-block;
+}
+
+button{
+  color:white;
+  background-color: #3f51b5;
+  border-radius:2em;
+  transform: scale(2);
+  margin: 5em;
+  border: 1px solid #35356a;
+}
+
+button:hover {
+  background-color: #161937;
+}
+
+.chosenButton {
+  background-color: #161937;
+}

@@ -17,6 +17,7 @@
 .teamSpan {
   color: #35356A;
   font-weight: bold;
+  cursor: pointer;
  }
 
 .descSpan {
